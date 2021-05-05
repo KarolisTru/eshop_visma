@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Main</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
@@ -20,10 +24,13 @@
         alt="logo"
         class="logo"
       />
+      <h1 class="shop-name">Shopapa</h1>
       <nav class="main-navbar">
         <ul>
           <li class="nav-link">
-            <a href="#">Login</a>
+            <button type="button" class="login-button">
+              <a href="#">Login</a>
+            </button>
           </li>
           <li class="desktop-show">
             <input
@@ -67,69 +74,68 @@
     </nav>
 
     <main>
-      <h1>Most Popular</h1>
       <article class="carousel">
-        <h2>Customers' Choice</h2>
+        <h2>Customer's choice</h2>
         <div class="carousel-container">
-          <button type="button">&larr;</button>
-          <section class="product-card-carousel">
-            <div class="img-container">
-              <a href="#">
-                <img
+          <button type="button" id="previous">
+            <i class="fa fa-chevron-left"></i>
+          </button>
+          <div class="cards-container">
+            <section class="product-card-carousel active">
+              <a href=#>
+                <div class="carousel-img-container">
+                  <img
+                    src="https://placeimg.com/640/480/tech"
+                    alt="product-photo"
+                    class="carousel-img"
+                  />
+                  <p class="carousel-data-container">
+                    Lorem ipsum dolor sit amet
+                  </p>
+                </div>
+              </a>
+            </section>
+
+            <section class="product-card-carousel">
+              <div class="carousel-img-container">
+                <a href="#">
+                  <img
                   src="https://placeimg.com/640/480/tech"
                   alt="product-photo"
+                  class="carousel-img"
                 />
-              </a>
-            </div>
-            <div class="data-container">
-              <h3 class="product-name-carousel">Product Name</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                commodo, magna ac semper malesuada, orci magna varius magna, vel
-                pharetra massa justo sed erat. Proin nec imperdiet erat.
-              </p>
-              <p>Price</p>
-            </div>
-          </section>
-          <section class="product-card-carousel desktop-show">
-            <div class="img-container">
-              <a href="#">
-                <img
+                <p class="carousel-data-container">
+                  Lorem ipsum dolor sit amet
+                </p>
+                </a>
+              </div>
+            </section>
+
+            <section class="product-card-carousel">
+              <div class="carousel-img-container">
+                <a href="#">
+                  <img
                   src="https://placeimg.com/640/480/tech"
                   alt="product-photo"
+                  class="carousel-img"
                 />
-              </a>
-            </div>
-            <div class="data-container">
-              <h3 class="product-name-carousel">Product Name</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                commodo, magna ac semper malesuada, orci magna varius magna, vel
-                pharetra massa justo sed erat. Proin nec imperdiet erat.
-              </p>
-              <p>Price</p>
-            </div>
-          </section>
-          <section class="product-card-carousel desktop-show">
-            <div class="img-container">
-              <a href="#">
-                <img
-                  src="https://placeimg.com/640/480/tech"
-                  alt="product-photo"
-                />
-              </a>
-            </div>
-            <div class="data-container">
-              <h3 class="product-name-carousel">Product Name</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                commodo, magna ac semper malesuada, orci magna varius magna, vel
-                pharetra massa justo sed erat. Proin nec imperdiet erat.
-              </p>
-              <p>Price</p>
-            </div>
-          </section>
-          <button type="button">&rarr;</button>
+                <p class="carousel-data-container">Opaa, vienas lietuviskas</p>
+                </a>
+              </div>
+            </section>
+          </div>
+          <button type="button" id="next">
+            <i class="fa fa-chevron-right"></i>
+          </button>
+        </div>
+        <div class="coordinates-button-container">
+          <button
+            type="button"
+            class="carousel-nav-button button-active"
+            value="0"
+          ></button>
+          <button type="button" class="carousel-nav-button" value="1"></button>
+          <button type="button" class="carousel-nav-button" value="2"></button>
         </div>
       </article>
 
@@ -138,114 +144,122 @@
         <div class="product-list-container">
           <section class="product-card-regular">
             <div class="img-container-regular">
-              <a href="#">
-                <img
-                  src="https://placeimg.com/640/480/tech"
-                  alt="product-photo"
-                />
-              </a>
+              <img
+                src="https://placeimg.com/640/480/tech"
+                alt="product-photo"
+              />
             </div>
             <div class="data-container">
               <h3 class="product-name-regular">Product Name</h3>
-              <p>Price</p>
+              <p class="price">Price</p>
+              <button type="button" class="cta-button">
+                <a href="#" class="stretched-link">See Product</a>
+              </button>
             </div>
           </section>
           <section class="product-card-regular">
             <div class="img-container-regular">
-              <a href="#">
-                <img
-                  src="https://placeimg.com/640/480/tech"
-                  alt="product-photo"
-                />
-              </a>
+              <img
+                src="https://placeimg.com/640/480/tech"
+                alt="product-photo"
+              />
             </div>
             <div class="data-container">
               <h3 class="product-name-regular">Product Name</h3>
               <p>Price</p>
+              <button type="button" class="cta-button">
+                <a href="#" class="stretched-link">See Product</a>
+              </button>
             </div>
           </section>
           <section class="product-card-regular">
             <div class="img-container-regular">
-              <a href="#">
-                <img
-                  src="https://placeimg.com/640/480/tech"
-                  alt="product-photo"
-                />
-              </a>
+              <img
+                src="https://placeimg.com/640/480/tech"
+                alt="product-photo"
+              />
             </div>
             <div class="data-container">
               <h3 class="product-name-regular">Product Name</h3>
               <p>Price</p>
+              <button type="button" class="cta-button">
+                <a href="#" class="stretched-link">See Product</a>
+              </button>
             </div>
           </section>
           <section class="product-card-regular">
             <div class="img-container-regular">
-              <a href="#">
-                <img
-                  src="https://placeimg.com/640/480/tech"
-                  alt="product-photo"
-                />
-              </a>
+              <img
+                src="https://placeimg.com/640/480/tech"
+                alt="product-photo"
+              />
             </div>
             <div class="data-container">
               <h3 class="product-name-regular">Product Name</h3>
               <p>Price</p>
+              <button type="button" class="cta-button">
+                <a href="#" class="stretched-link">See Product</a>
+              </button>
             </div>
           </section>
           <section class="product-card-regular">
             <div class="img-container-regular">
-              <a href="#">
-                <img
-                  src="https://placeimg.com/640/480/tech"
-                  alt="product-photo"
-                />
-              </a>
+              <img
+                src="https://placeimg.com/640/480/tech"
+                alt="product-photo"
+              />
             </div>
             <div class="data-container">
               <h3 class="product-name-regular">Product Name</h3>
               <p>Price</p>
+              <button type="button" class="cta-button">
+                <a href="#" class="stretched-link">See Product</a>
+              </button>
             </div>
           </section>
           <section class="product-card-regular">
             <div class="img-container-regular">
-              <a href="#">
-                <img
-                  src="https://placeimg.com/640/480/tech"
-                  alt="product-photo"
-                />
-              </a>
+              <img
+                src="https://placeimg.com/640/480/tech"
+                alt="product-photo"
+              />
             </div>
             <div class="data-container">
               <h3 class="product-name-regular">Product Name</h3>
               <p>Price</p>
+              <button type="button" class="cta-button">
+                <a href="#" class="stretched-link">See Product</a>
+              </button>
             </div>
           </section>
           <section class="product-card-regular">
             <div class="img-container-regular">
-              <a href="#">
-                <img
-                  src="https://placeimg.com/640/480/tech"
-                  alt="product-photo"
-                />
-              </a>
+              <img
+                src="https://placeimg.com/640/480/tech"
+                alt="product-photo"
+              />
             </div>
             <div class="data-container">
               <h3 class="product-name-regular">Product Name</h3>
               <p>Price</p>
+              <button type="button" class="cta-button">
+                <a href="#" class="stretched-link">See Product</a>
+              </button>
             </div>
           </section>
           <section class="product-card-regular">
             <div class="img-container-regular">
-              <a href="#">
-                <img
-                  src="https://placeimg.com/640/480/tech"
-                  alt="product-photo"
-                />
-              </a>
+              <img
+                src="https://placeimg.com/640/480/tech"
+                alt="product-photo"
+              />
             </div>
             <div class="data-container">
               <h3 class="product-name-regular">Product Name</h3>
               <p>Price</p>
+              <button type="button" class="cta-button">
+                <a href="#" class="stretched-link">See Product</a>
+              </button>
             </div>
           </section>
         </div>
@@ -268,5 +282,6 @@
         </ul>
       </footer>
     </main>
+    <script src="js/index.js"></script>
   </body>
 </html>
