@@ -1,0 +1,26 @@
+footer {
+    background-color: aliceblue;
+    height: 100px;
+    padding-top: 10px;
+  }
+  
+  footer ul {
+    width: 300px;
+    height: 70%;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    list-style-type: none;
+  }
+  
+  footer ul li {
+    flex: 1 1 50%;
+    color: rgba(172, 172, 235, 0.712);
+    font-size: 12px;
+  }
+  
+  footer ul li:hover {
+    font-weight: bold;
+    text-decoration: underline;
+  }
