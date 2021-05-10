@@ -25,6 +25,10 @@
     padding-right: 10px;
     font-size: 14px;
   }
+
+  .product-name-regular {
+    text-transform: capitalize;
+  }
   
   .img-container-regular {
     width: 100%;

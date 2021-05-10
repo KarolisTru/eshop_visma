@@ -24,11 +24,10 @@
       transform: scale(1.005);
     }
   }
-  
-  #previous {
+
+  .carousel-control-buttons {
     position: absolute;
     top: 40%;
-    left: 0px;
     z-index: 99;
     background-color: transparent;
     border: none;
@@ -37,24 +36,18 @@
     padding: 12px 16px;
     font-size: 20px;
     cursor: pointer;
+  }
+
+  .carousel-control-buttons:hover{
+    animation: color 200ms forwards;
+  }
+  
+  #previous {  
+    left: 0px;
   }
   
   #next {
-    position: absolute;
-    top: 40%;
     right: 0px;
-    z-index: 99;
-    background-color: transparent;
-    border: none;
-    border-radius: 50%;
-    color: white;
-    padding: 12px 16px;
-    font-size: 20px;
-    cursor: pointer;
-  }
-  
-  #next:hover, #previous:hover{
-    animation: color 200ms forwards;
   }
   
   @keyframes color {
