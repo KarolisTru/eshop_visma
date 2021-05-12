@@ -1,0 +1,25 @@
+.icon-button {
+    z-index: 1200;
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 12px 16px;
+}
+
+.icon-button:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+}
+
+.icon-button--danger {
+    color: rgba(230, 101, 108, 0.712);
+}
+
+.icon-button--primary {
+    color: rgba(172, 172, 235, 0.712);
+}
+
+.icon-button--white {
+    color: white;
+}
