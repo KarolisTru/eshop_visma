@@ -1,4 +1,4 @@
-import fetchCarousel from "../fetch/fetch.js";
+import {fetchItems} from "../fetch/fetch.js";
 
 //static elements, are in html file (not created by js) and won't change dynamically
 const previousButton = document.getElementById("previous");
@@ -48,12 +48,18 @@ const state = {
   get carouselCardsContainer() {
     return document.querySelector(".cards-container");
   },
+  get showsNotFirstSlide() {
+    return this.currentlyActiveIndex !== 0;
+  },
+  get showsNotLastSlide() {
+    return this.currentlyActiveIndex !== this.carouselLength - 1;
+  },
 };
 
 //main function to fetch carousel items, sort them, create carousel and its nav buttons below
 export default async () => {
   try {
-    const data = await fetchCarousel("/carousel");
+    const data = await fetchItems("/carousel");
     data.sort((a, b) => a.priority - b.priority);
     createCarouselSection(data);
     createCarouselNavButtons(data);
@@ -94,7 +100,7 @@ function createCarouselNavButtons(data) {
                   index === 0
                     ? "carousel-nav-button button-active"
                     : "carousel-nav-button"
-                }" type="button" value="${index}"></button>
+                }" type="button" data-value="${index}"></button>
             `
       )
       .join("");
@@ -106,19 +112,17 @@ function createCarouselNavButtons(data) {
     `;
 
     carousel.insertAdjacentHTML("beforeend", buttonsContainer);
-    addEventListeners(state.carouselButtons);
+    addEventListeners(state.carouselButtons, updateSlideButtons);
   }
 }
 
-function addEventListeners(elements) {
-  elements.forEach((btn) => btn.addEventListener("click", updateSlideButtons));
+function addEventListeners(elements, handler) {
+  elements.forEach((btn) => btn.addEventListener("click", handler));
 }
 
 //below - event listeners for previous/next buttons
 nextButton.addEventListener("click", () => {
-  const isLast = state.currentlyActiveIndex === state.carouselLength - 1;
-
-  if (!isLast) {
+  if (state.showsNotLastSlide) {
     const offset = -state.currentSlideElement.offsetWidth;
     updateState(offset, "nextSlideElement", "nextSlideButton");
     state.currentlyActiveIndex++;
@@ -126,9 +130,7 @@ nextButton.addEventListener("click", () => {
 });
 
 previousButton.addEventListener("click", () => {
-  const isFirst = state.currentlyActiveIndex === 0;
-
-  if (!isFirst) {
+  if (state.showsNotFirstSlide) {
     const offset = state.currentSlideElement.offsetWidth;
     updateState(offset, "previousSlideElement", "previousSlideButton");
     state.currentlyActiveIndex--;
@@ -150,16 +152,17 @@ function updateState(offset, targetSlide, targetButton) {
 
 //updating state when nav buttons below the carousel are clicked
 function updateSlideButtons(e) {
-  const isButtonActive = +e.target.value === state.currentlyActiveIndex;
+  const buttonIndex = e.target.dataset.value
+  const isButtonActive = +buttonIndex === state.currentlyActiveIndex;
 
   if (!isButtonActive) {
-    state.translateX = e.target.value * -state.currentSlideElement.offsetWidth;
+    state.translateX = buttonIndex * -state.currentSlideElement.offsetWidth;
     state.carouselCardsContainer.style.transform = `translateX(${state.translateX}px)`;
     state.currentSlideElement.classList.remove("active");
-    state.carouselCards[e.target.value].classList.add("active");
+    state.carouselCards[buttonIndex].classList.add("active");
     state.activeSlideButton.classList.remove("button-active");
-    state.carouselButtons[e.target.value].classList.add("button-active");
+    state.carouselButtons[buttonIndex].classList.add("button-active");
 
-    state.currentlyActiveIndex = +e.target.value;
+    state.currentlyActiveIndex = +buttonIndex;
   }
 }
