@@ -1,18 +1,20 @@
-
-import fetchProducts, { fetchOneProduct } from "../fetch/fetch.js";
-import { deleteProduct } from "../fetch/deleteProduct.js";
-import { addProduct } from "../fetch/addProduct.js";
-import { editProduct } from "../fetch/editProduct.js";
+import {
+  fetchItems,
+  fetchOneProduct,
+  deleteProduct,
+  addProduct,
+  editProduct,
+} from "../fetch/fetch.js";
 
 const state = {
-  activeProductID: "",
+  activeProductID: null,
 
   activateModal(id) {
     document.getElementById(id).classList.add("modal-active");
   },
   deactivateModal() {
     document.querySelector(".modal-active").classList.remove("modal-active");
-    this.activeProductID = "";
+    this.activeProductID = null;
   },
   createProductObject(formID) {
     const dataObj = {};
@@ -29,16 +31,16 @@ const state = {
 
     return dataObj;
   },
-  addNewProduct(product) {
-    document.querySelector(".product-list-container").append(product);
+  addNewProduct(productElement) {
+    document.querySelector(".product-list-container").append(productElement);
   },
-  updateProduct(updatedProduct) {
+  updateProduct(updatedProductElement) {
     document
       .querySelector(`[data-product-id="${this.activeProductID}"]`)
-      .replaceWith(updatedProduct);
+      .replaceWith(updatedProductElement);
   },
-  appendProductList(productList) {
-    document.querySelector(".product-list").append(productList);
+  appendProductList(productListElement) {
+    document.querySelector(".product-list").append(productListElement);
   },
   deleteFromDOM() {
     const deletedID = this.activeProductID;
@@ -51,19 +53,23 @@ const state = {
   clearEditProductForm() {
     this.productEditForm.reset();
   },
-  populateForm(data) {
-    const fields = Object.keys(data);
+  populateForm(productData) {
+    const keyValueList = Object.entries(productData);
     const productEditForm = this.productEditForm;
 
-    fields.forEach((field) => {
-      const fieldValue = productEditForm.elements[field];
+    keyValueList.forEach((field) => {
+      const [key, value] = field;
+      const fieldValueInForm = productEditForm.elements[key];
 
-      if (field === "flagged" && data[field] === "true") {
-        document.getElementById('display-in-carousel-edit').checked = true;
-      } else if (fieldValue) {
-        fieldValue.value = data[field];
+      if (key === "flagged" && value === "true") {
+        document.getElementById("display-in-carousel-edit").checked = true;
+      } else if (fieldValueInForm) {
+        fieldValueInForm.value = value;
       }
     });
+  },
+  formIsValid(formID) {
+    return document.getElementById(formID).checkValidity();
   },
 
   get productEditForm() {
@@ -87,15 +93,15 @@ const state = {
   get exitModalButtons() {
     return document.querySelectorAll(".close-button");
   },
-  set currentID(obj) {
-    this.activeProductID = obj.closest("[data-product-id]").dataset.productId;
+  set currentID(button) {
+    this.activeProductID = button.closest("[data-product-id]").dataset.productId;
   },
 };
 
 //main function to fetch products and create the product list in document
 export default async () => {
   try {
-    const data = await fetchProducts("/products");
+    const data = await fetchItems("/products");
     createProductList(data);
   } catch (err) {
     console.error(err);
@@ -150,9 +156,8 @@ function createProductCard({ photoUrl, price, name, url, id }) {
   const openDeleteButton = productCardContainer.querySelector(
     ".delete-modal-opener"
   );
-  const openEditButton = productCardContainer.querySelector(
-    ".edit-modal-opener"
-  );
+  const openEditButton =
+    productCardContainer.querySelector(".edit-modal-opener");
 
   openDeleteButton.addEventListener("click", openDeleteModal);
   openEditButton.addEventListener("click", openEditModal);
@@ -192,37 +197,40 @@ state.deleteProductBtn.addEventListener("click", async () => {
 
 state.submitNewProductBtn.addEventListener("click", async (e) => {
   e.preventDefault();
-  const dataObject = state.createProductObject("new-product-form");
-  try {
-    const newProduct = await addProduct(dataObject);
-    const productCard = createProductCard(newProduct);
-    state.addNewProduct(productCard);
-    state.deactivateModal();
-    state.clearAddProductForm();
-  } catch (err) {
-    console.error(err);
-  }
+  if (state.formIsValid("new-product-form")) {
+    const dataObject = state.createProductObject("new-product-form");
+    try {
+      const newProduct = await addProduct(dataObject);
+      const productCard = createProductCard(newProduct);
+      state.addNewProduct(productCard);
+      state.deactivateModal();
+      state.clearAddProductForm();
+    } catch (err) {
+      console.error(err);
+    }
+  } else state.addProductForm.reportValidity();
 });
 
 state.submitUpdatedProductBtn.addEventListener("click", async (e) => {
   e.preventDefault();
-  const dataObject = state.createProductObject("edit-product-form");
-  try {
-    const updatedProductData = await editProduct(
-      dataObject,
-      state.activeProductID
-    );
-    const updatedProduct = createProductCard(updatedProductData);
-    state.updateProduct(updatedProduct);
-    state.deactivateModal();
-  } catch (err) {
-    console.error(err);
-  }
+  if (state.formIsValid("edit-product-form")) {
+    const dataObject = state.createProductObject("edit-product-form");
+    try {
+      const updatedProductData = await editProduct(
+        dataObject,
+        state.activeProductID
+      );
+      const updatedProduct = createProductCard(updatedProductData);
+      state.updateProduct(updatedProduct);
+      state.deactivateModal();
+    } catch (err) {
+      console.error(err);
+    }
+  } else state.productEditForm.reportValidity();
 });
 
 state.exitModalButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
-
     state.deactivateModal();
     state.clearEditProductForm();
   });

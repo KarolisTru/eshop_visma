@@ -34,7 +34,7 @@ form {
   position: relative;
   justify-self: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s, transform 0.3s;
   border-radius: 5px;
   max-width: 260px;
   height: 300px;
@@ -42,6 +42,7 @@ form {
 
 .product-card-regular:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  transform: scale(1.03)
   /*animation: size-up 200ms forwards; -- can't have this one as position fixed for modal doesn't work then*/
 }
 
