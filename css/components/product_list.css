@@ -1,116 +1,172 @@
+@import "../util/styled_button.css";
+@import "./modal.css";
+@import "../util/icon_button.css";
+
+/* add product form */
+.btn-container {
+  width: 240px;
+  margin: 10px auto 30px auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/**/
+.form-control {
+  margin-bottom: 15px;
+  width: 90%;
+  margin: 0 auto 15px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
 .product-list-container {
-    width: 88%;
-    margin: 0 auto 50px auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 40px 20px;
+  width: 88%;
+  margin: 0 auto 50px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 40px 20px;
+}
+.product-card-regular {
+  position: relative;
+  justify-self: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s, transform 0.3s;
+  border-radius: 5px;
+  max-width: 260px;
+  height: 300px;
+}
+
+.product-card-regular:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  transform: scale(1.03)
+  /*animation: size-up 200ms forwards; -- can't have this one as position fixed for modal doesn't work then*/
+}
+
+.data-container {
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 14px;
+}
+
+.product-name-regular {
+  text-transform: capitalize;
+  width: 80%;
+}
+
+.img-container-regular {
+  width: 100%;
+  height: 140px;
+}
+
+.img-container-regular img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px 5px 0 0;
+}
+
+.cta-button {
+  border: none;
+  border-radius: 5px;
+  height: 30px;
+  background-color: rgba(172, 172, 235, 0.712);
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  min-width: 120px;
+  position: absolute;
+  bottom: 10px;
+}
+
+.cta-button a {
+  color: white;
+}
+
+.cta-button:hover {
+  animation: background-color 200ms forwards;
+}
+
+@keyframes background-color {
+  100% {
+    background-color: rgba(137, 137, 235, 0.712);
   }
-  .product-card-regular {
-    position: relative;
-    justify-self: center;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: box-shadow 0.3s;
-    border-radius: 5px;
-    max-width: 260px;
-    height: 300px;
+}
+
+/*needs to be corrected*/
+.stretched-link::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  pointer-events: auto;
+  content: "";
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.delete {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.edit {
+  position: absolute;
+  top: 144px;
+  right: 0;
+}
+
+@media only screen and (min-width: 860px) {
+  .btn-container {
+    width: 150px;
+    margin-left: calc((100% - 814px) / 2);
   }
-  
-  .product-card-regular:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-    animation: size-up 200ms forwards;
-  }
-  
-  .data-container {
-    padding-left: 10px;
-    padding-right: 10px;
-    font-size: 14px;
+  .product-list-container {
+    width: 820px;
+    grid-template-columns: repeat(4, 1fr);
   }
 
-  .product-name-regular {
-    text-transform: capitalize;
-  }
-  
   .img-container-regular {
     width: 100%;
-    height: 140px;
+    height: 160px;
   }
-  
-  .img-container-regular img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 5px 5px 0 0;
-  }
-  
+
   .cta-button {
-    border: none;
-    border-radius: 5px;
-    height: 30px;
-    background-color:rgba(172, 172, 235, 0.712);
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-    margin-top: 35px;
-    min-width: 120px;
-  }
-  
-  .cta-button a {
-    color: white;
-  }
-  
-  .cta-button:hover {
-    animation: background-color 200ms forwards;
-  }
-  
-  @keyframes background-color {
-    100% {
-      background-color: rgba(137, 137, 235, 0.712);
-    }
-  }
-  
-  .stretched-link::after {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 1;
-    pointer-events: auto;
-    content: "";
-    background-color: rgba(0,0,0,0)
+    margin-top: 15px;
   }
 
-  @media only screen and (min-width: 860px) {
-    .product-list-container {
-        width: 820px;
-        grid-template-columns: repeat(4, 1fr);
-      }
-    
-      .img-container-regular {
-        width: 100%;
-        height: 160px;
-      }
+  .edit {
+    top: 164px;
+  }
+}
 
-      .cta-button {
-          margin-top: 15px;
-      }
+@media only screen and (min-width: 1200px) {
+  .btn-container {
+    margin-left: calc((100% - 1140px) / 2);
   }
 
-  @media only screen and (min-width: 1200px) {
-    .product-list-container {
-        width: 1160px;
-      }
-    
-      .img-container-regular {
-        width: 260px;
-        height: 200px;
-      }
-    
-      .product-card-regular {
-        height: 340px;
-      }
-
-      .product-list-container {
-        gap: 40px 10px;
-      }
+  .product-list-container {
+    width: 1160px;
   }
-  
+
+  .img-container-regular {
+    width: 260px;
+    height: 200px;
+  }
+
+  .product-card-regular {
+    height: 340px;
+  }
+
+  .product-list-container {
+    gap: 40px 10px;
+  }
+
+  .edit {
+    top: 204px;
+  }
+}

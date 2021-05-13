@@ -88,7 +88,178 @@
       </article>
 
       <article class="product-list">
-        <h2>Seasonal Trends</h2>
+        <h2>Products</h2>
+        <div class="btn-container" id="add-new-product-btn">
+          <button type="button" class="styled-button styled-button--action">
+            Add New Product
+          </button>
+        </div>
+
+        <div class="modal" id="add-product-modal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button
+                type="button"
+                class="close-button icon-button icon-button--white"
+              >
+                <i class="fa fa-window-close"></i>
+              </button>
+            </div>
+            <div class="modal-body modal-body--withForm">
+              <p>Please fill data below</p>
+              <form id="new-product-form">
+                <div class="form-control">
+                  <label for="product-name-add">Product Name:</label>
+                  <input type="text" id="product-name-add" name="name" required />
+                </div>
+                <div class="form-control">
+                  <label for="photo-url-add">Photo Url:</label>
+                  <input type="url" id="photo-url-add" name="photoUrl" />
+                </div>
+                <div class="form-control">
+                  <label for="product-price-add">Price:</label>
+                  <input
+                    type="number"
+                    id="product-price-add"
+                    name="price"
+                    min="0.01"
+                    step="0.01"
+                    required
+                  />
+                </div>
+                <div class="form-control">
+                  <label for="product-link-add">Product Page:</label>
+                  <input type="url" id="product-link-add" name="url" required />
+                </div>
+                <div class="form-control">
+                  <label for="product-description-add">Description:</label>
+                  <textarea
+                    id="product-description-add"
+                    name="description"
+                    rows="4"
+                  ></textarea>
+                </div>
+                <fieldset class="form-control">
+                  <legend>Display in Carousel?</legend>
+                  <div>
+                    <input
+                      type="checkbox"
+                      id="display-in-carousel-add"
+                      name="flagged"
+                      value="true"
+                    />
+                    <label for="display-in-carousel-add">Yes</label>
+                  </div>
+                </fieldset>
+                <button
+                  type="submit"
+                  class="styled-button styled-button--action"
+                  id="submit-product"
+                >
+                  Add Product
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal" id="edit-product-modal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button
+                type="button"
+                class="close-button icon-button icon-button--white"
+              >
+                <i class="fa fa-window-close"></i>
+              </button>
+            </div>
+            <div class="modal-body modal-body--withForm">
+              <p>Edit Product Details</p>
+              <form id="edit-product-form">
+                <div class="form-control">
+                  <label for="product-name-edit">Product Name:</label>
+                  <input type="text" id="product-name-edit" name="name" required />
+                </div>
+                <div class="form-control">
+                  <label for="photo-url-edit">Photo Url:</label>
+                  <input type="url" id="photo-url-edit" name="photoUrl" />
+                </div>
+                <div class="form-control">
+                  <label for="product-price-edit">Price:</label>
+                  <input
+                    type="number"
+                    id="product-price-edit"
+                    name="price"
+                    min="0.01"
+                    step="0.01"
+                    required
+                  />
+                </div>
+                <div class="form-control">
+                  <label for="product-link-edit">Product Page:</label>
+                  <input type="url" id="product-link-edit" name="url" required />
+                </div>
+                <div class="form-control">
+                  <label for="product-description-edit">Description:</label>
+                  <textarea
+                    id="product-description-edit"
+                    name="description"
+                    rows="4"
+                  ></textarea>
+                </div>
+                <fieldset id="flagged" class="form-control">
+                  <legend>Display in Carousel?</legend>
+                  <div>
+                    <input
+                      type="checkbox"
+                      id="display-in-carousel-edit"
+                      name="flagged"
+                      value="true"
+                    />
+                    <label for="display-in-carousel-edit">Yes</label>
+                  </div>
+                </fieldset>
+                <button
+                  type="submit"
+                  class="styled-button styled-button--action"
+                  id="submit-edit-product"
+                >
+                  Edit Product
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal" id="delete-modal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button
+                type="button"
+                class="close-button icon-button icon-button--white"
+              >
+                <i class="fa fa-window-close"></i>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Are you sure you want to delete this product?</p>
+              <div class="modal-btn-container">
+                <button
+                  class="styled-button styled-button--action"
+                  id="delete-product"
+                >
+                  Yes
+                </button>
+                <button
+                  class="styled-button styled-button--danger close-button"
+                >
+                  No
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </article>
 
       <footer>

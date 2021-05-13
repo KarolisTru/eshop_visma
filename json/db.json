@@ -1,97 +1,110 @@
 {
     "products": [
-        {
-            "id": 0,
-            "name": "animal shirt",
-            "photoUrl": "https://placeimg.com/640/480/animals",
-            "price": 13.99,
-            "url": "#"
-        },
-        {
-            "id": 1,
-            "name": "architecture shirt",
-            "photoUrl": "https://placeimg.com/640/480/architecture",
-            "price": 25.00,
-            "url": "#"
-        },
-        {
-            "id": 2,
-            "name": "tech shirt",
-            "photoUrl": "https://placeimg.com/640/480/tech",
-            "price": 9.99,
-            "url": "#"
-        },
-        {
-            "id": 3,
-            "name": "nature shirt",
-            "photoUrl": "https://placeimg.com/640/480/nature",
-            "price": 17.45,
-            "url": "#"
-        },
-        {
-            "id": 4,
-            "name": "people shirt",
-            "photoUrl": "https://placeimg.com/640/480/people",
-            "price": 48.89,
-            "url": "#"
-        },
-        {
-            "id": 5,
-            "name": "animals shirt",
-            "photoUrl": "https://placeimg.com/640/480/animals",
-            "price": 121.00,
-            "url": "#"
-        },
-        {
-            "id": 6,
-            "name": "nature shirt",
-            "photoUrl": "https://placeimg.com/640/480/nature",
-            "price": 13.99,
-            "url": "#"
-        },
-        {
-            "id": 7,
-            "name": "architecture shirt",
-            "photoUrl": "https://placeimg.com/640/480/architecture",
-            "price": 79.29,
-            "url": "#"
-        }
+      {
+        "name": "alioosdads",
+        "photoUrl": "https://placeimg.com/640/480/nature",
+        "price": "17.45",
+        "url": "#",
+        "description": "very nice",
+        "id": 3
+      },
+      {
+        "name": "Normaliai",
+        "photoUrl": "https://picsum.photos/id/1000/5626/3635",
+        "price": "23",
+        "url": "#",
+        "id": 7
+      },
+      {
+        "name": "Still working",
+        "photoUrl": "https://picsum.photos/id/1001/5616/3744",
+        "price": "34",
+        "url": "#",
+        "id": 11
+      },
+      {
+        "name": "fdbtnyujmym",
+        "photoUrl": "https://picsum.photos/id/1004/5616/3744",
+        "price": "3445",
+        "url": "#",
+        "description": "very nice",
+        "flagged": "true",
+        "id": 12
+      },
+      {
+        "name": "sasd",
+        "photoUrl": "https://picsum.photos/id/1004/5616/3744",
+        "price": "432",
+        "url": "#",
+        "description": "21",
+        "flagged": "true",
+        "id": 13
+      },
+      {
+        "name": "dasdcvth",
+        "photoUrl": "https://picsum.photos/id/1000/5626/3635",
+        "price": "34",
+        "url": "#",
+        "flagged": "true",
+        "id": 14
+      },
+      {
+        "name": "dsasd",
+        "photoUrl": "https://picsum.photos/id/1001/5616/3744",
+        "price": "45",
+        "url": "#",
+        "id": 15
+      },
+      {
+        "name": "fgd ",
+        "photoUrl": "https://picsum.photos/id/1000/5626/3635",
+        "price": "45",
+        "url": "rt",
+        "id": 16
+      },
+      {
+        "name": "vdfvdfv",
+        "photoUrl": "https://picsum.photos/id/1004/5616/3744",
+        "price": "23",
+        "url": "#",
+        "id": 17
+      }
     ],
-    "carousel" : [
-        {
-            "id": "carousel-item-1",
-            "photoUrl": "https://placeimg.com/640/480/tech",
-            "link": "#",
-            "text": "Priority 1",
-            "priority": 1
-        },
-        {
-            "id": "carousel-item-2",
-            "photoUrl": "https://placeimg.com/640/480/nature",
-            "link": "#",
-            "text": "Priority 3",
-            "priority": 3
-        },
-        {
-            "id": "carousel-item-3",
-            "photoUrl": "https://placeimg.com/640/480/people",
-            "link": "#",
-            "text": "Priority 2", 
-            "priority": 2
-        },
-        {
-            "id": "carousel-item-4",
-            "photoUrl": "https://placeimg.com/640/480/architecture",
-            "link": "#",
-            "text": "Priority 1", 
-            "priority": 1
-        },
-        {
-            "id": "carousel-item-4",
-            "photoUrl": "https://placeimg.com/640/480/nature",
-            "link": "#",
-            "text": "Priority 4", 
-            "priority": 4
-        }
+    "carousel": [
+      {
+        "id": "carousel-item-1",
+        "photoUrl": "https://placeimg.com/640/480/tech",
+        "link": "#",
+        "text": "Priority 1",
+        "priority": 1
+      },
+      {
+        "id": "carousel-item-2",
+        "photoUrl": "https://placeimg.com/640/480/nature",
+        "link": "#",
+        "text": "Priority 3",
+        "priority": 3
+      },
+      {
+        "id": "carousel-item-3",
+        "photoUrl": "https://placeimg.com/640/480/people",
+        "link": "#",
+        "text": "Priority 2",
+        "priority": 2
+      },
+      {
+        "id": "carousel-item-4",
+        "photoUrl": "https://placeimg.com/640/480/architecture",
+        "link": "#",
+        "text": "Priority 1",
+        "priority": 1
+      },
+      {
+        "id": "carousel-item-4",
+        "photoUrl": "https://placeimg.com/640/480/nature",
+        "link": "#",
+        "text": "Priority 4",
+        "priority": 4
+      }
     ]
-}
+  }

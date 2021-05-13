@@ -11,18 +11,12 @@
     display: flex;
     border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: box-shadow 0.3s;
+    transition: box-shadow 0.3s, transform 0.3s;
   }
   
   .carousel-container:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-    animation: size-up 200ms forwards;
-  }
-  
-  @keyframes size-up {
-    100% {
-      transform: scale(1.005);
-    }
+    transform: scale(1.005);
   }
 
   .carousel-control-buttons {
