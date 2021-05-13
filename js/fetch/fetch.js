@@ -3,10 +3,9 @@ export async function fetchItems(url) {
     const response = await fetch(url);
     const data = await response.json();
     return data;
-  } catch(err) {
+  } catch (err) {
     console.error(err);
   }
-
 }
 
 export async function fetchOneProduct(id) {
@@ -17,7 +16,7 @@ export async function fetchOneProduct(id) {
   } catch (err) {
     console.error(err);
   }
-};
+}
 
 export const addProduct = async (data) => {
   const postObject = {

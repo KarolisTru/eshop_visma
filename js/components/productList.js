@@ -229,6 +229,7 @@ state.submitUpdatedProductBtn.addEventListener("click", async (e) => {
   } else state.productEditForm.reportValidity();
 });
 
+
 state.exitModalButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
     state.deactivateModal();
