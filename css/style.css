@@ -1,8 +1,8 @@
-@import 'category_page.css';
-@import 'carousel.css';
-@import 'product_list.css';
-@import 'footer.css';
-@import 'utilities.css';
+@import './pages/category_page.css';
+@import './components/carousel.css';
+@import './components/product_list.css';
+@import './components/footer.css';
+@import './util/utilities.css';
 
 
 html,
