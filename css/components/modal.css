@@ -76,14 +76,6 @@
     margin-bottom: 20px;
     justify-self: center;
   }
-  
-  .modal-footer {
-    padding: 2px 16px;
-    background-color: rgba(230, 101, 108, 0.712);
-    color: white;
-    border-radius: 10px;
-    height: 30px;
-  }
 
 .modal-btn-container {
   display: flex;
